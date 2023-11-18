@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { ZodError } from "zod";
 
-type EnvVariableKey = "JWT_SECRET_KEY" | "JWT_EXPIRES_IN";
+type EnvVariableKey = "JWT_SECRET_KEY" | "JWT_EXPIRES_IN" | "BASE_URL";
 
 export function getEnvVariable(key: EnvVariableKey): string {
   const value = process.env[key];

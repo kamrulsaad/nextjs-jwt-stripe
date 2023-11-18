@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/Providers/ThemeProviders";
+import ReduxProvider from "@/components/Providers/ReduxProvider";
 
 const inter = Poppins({
   subsets: ["latin-ext"],
@@ -27,7 +28,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <ReduxProvider>{children}</ReduxProvider>
         </ThemeProvider>
       </body>
     </html>

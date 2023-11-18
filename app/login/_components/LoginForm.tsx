@@ -1,13 +1,10 @@
 "use client";
 
-import * as React from "react";
-
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginUserSchema } from "@/lib/validator/userSchema";
 import { useForm } from "react-hook-form";
 import { cn } from "@/lib/utils";
-import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/ui/icons";
@@ -20,13 +17,13 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { useLoginMutation } from "@/redux/api/authApi";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function LoginForm({ className, ...props }: UserAuthFormProps) {
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [login, { isLoading }] = useLoginMutation();
 
-  // 1. Define your form.
   const form = useForm<z.infer<typeof LoginUserSchema>>({
     resolver: zodResolver(LoginUserSchema),
     defaultValues: {
@@ -35,9 +32,11 @@ export function LoginForm({ className, ...props }: UserAuthFormProps) {
     },
   });
 
-  function onSubmit(values: z.infer<typeof LoginUserSchema>) {
-    
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof LoginUserSchema>) {
+    try {
+      const res = await login(values).unwrap();
+      console.log(res);
+    } catch (error) {}
   }
 
   return (
