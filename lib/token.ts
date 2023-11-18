@@ -28,7 +28,6 @@ export const verifyJWT = async <T>(token: string): Promise<T> => {
       )
     ).payload as T;
   } catch (error) {
-    console.log(error);
     throw new Error("Your token has expired.");
   }
 };

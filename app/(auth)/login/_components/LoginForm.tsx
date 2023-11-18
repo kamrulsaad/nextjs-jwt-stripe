@@ -38,8 +38,10 @@ export function LoginForm({ className, ...props }: UserAuthFormProps) {
 
   async function onSubmit(values: z.infer<typeof LoginUserSchema>) {
     try {
-      const res = await login(values).unwrap();
-      console.log(res);
+      await login(values).unwrap();
+      toast({
+        title: "Login Successful",
+      });
       router.push("/");
     } catch (error: any) {
       toast({
