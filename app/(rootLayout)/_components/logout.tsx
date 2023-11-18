@@ -1,11 +1,11 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/use-toast";
 import useLogOut from "@/hooks/useLogout";
-import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 
-const SideBarItem = () => {
+const Logout = () => {
   const logout = useLogOut();
   const router = useRouter();
 
@@ -20,16 +20,15 @@ const SideBarItem = () => {
   };
 
   return (
-    <button
+    <Button
       onClick={onClick}
-      type="button"
-      className={cn(
-        "flex items-center gap-x-2 text-sm font-[500] pl-6 transition-all "
-      )}
+      className="hidden md:flex"
+      size={"lg"}
+      variant={"destructive"}
     >
-      <div className="py-4">Log Out</div>
-    </button>
+      Log Out
+    </Button>
   );
 };
 
-export default SideBarItem;
+export default Logout;
