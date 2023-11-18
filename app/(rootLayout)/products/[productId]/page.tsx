@@ -1,4 +1,3 @@
-import { ProductCard } from "@/components/productCard";
 import Image from "next/image";
 
 async function getData(productId: string) {

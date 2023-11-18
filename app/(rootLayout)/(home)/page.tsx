@@ -1,7 +1,9 @@
 import Products from "./_components/Products";
 
 async function getData() {
-  const response = await fetch("http://localhost:3000/api/products");
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/products`
+  );
   const data = await response.json();
   return data.products;
 }
