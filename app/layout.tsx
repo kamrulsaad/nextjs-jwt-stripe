@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/Providers/ThemeProviders";
 import ReduxProvider from "@/components/Providers/ReduxProvider";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Poppins({
   subsets: ["latin-ext"],
@@ -30,6 +31,7 @@ export default function RootLayout({
         >
           <ReduxProvider>{children}</ReduxProvider>
         </ThemeProvider>
+        <Toaster />
       </body>
     </html>
   );

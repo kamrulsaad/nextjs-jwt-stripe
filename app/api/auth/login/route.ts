@@ -53,6 +53,8 @@ export async function POST(req: NextRequest) {
         name: "logged-in",
         value: "true",
         maxAge: tokenMaxAge,
+        secure: process.env.NODE_ENV !== "development",
+        httpOnly: true,
       }),
     ]);
 

@@ -18,10 +18,14 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useLoginMutation } from "@/redux/api/authApi";
+import { toast } from "@/components/ui/use-toast";
+import { useRouter } from "next/navigation";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function LoginForm({ className, ...props }: UserAuthFormProps) {
+  const router = useRouter();
+
   const [login, { isLoading }] = useLoginMutation();
 
   const form = useForm<z.infer<typeof LoginUserSchema>>({
@@ -36,7 +40,13 @@ export function LoginForm({ className, ...props }: UserAuthFormProps) {
     try {
       const res = await login(values).unwrap();
       console.log(res);
-    } catch (error) {}
+      router.push("/");
+    } catch (error: any) {
+      toast({
+        title: error.data.message,
+        variant: "destructive",
+      });
+    }
   }
 
   return (

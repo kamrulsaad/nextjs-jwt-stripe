@@ -5,7 +5,7 @@ import { instance as axiosInstance } from './axiosInstance'
 
 export const axiosBaseQuery =
   (
-    { baseUrl }: { baseUrl: string } = { baseUrl: '' }
+    { baseUrl }: { baseUrl: string } = { baseUrl: '/api' }
   ): BaseQueryFn<
     {
       url: string
