@@ -26,8 +26,10 @@ const ProductPage = async ({ params: { productId } }: ProductPageProps) => {
         <Image src={data.imageUrl} fill alt={data?.name} objectFit="cover" />
       </div>
       <small className="mt-2">
-        You&lsquo;ve successfully purchased <strong>{data?.name}</strong> for{" "}
-        <strong>{data?.price}</strong>
+        You&lsquo;ve successfully purchased <strong>{data?.name}</strong>
+      </small>
+      <small>
+        Your Delivery is on the way. Thank you for shopping with us.
       </small>
     </div>
   );

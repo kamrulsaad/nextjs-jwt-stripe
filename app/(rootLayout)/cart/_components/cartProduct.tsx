@@ -27,8 +27,8 @@ const CartProduct = () => {
   }, [product.id, router]);
 
   return (
-    <div className="group flex flex-row-reverse justify-between items-stretch gap-4 hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full">
-      <div className="relative w-1/4 aspect-video rounded-md overflow-hidden">
+    <div className="group sm:flex flex-row-reverse justify-between items-stretch gap-4 hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full">
+      <div className="relative sm:w-1/4 aspect-video rounded-md overflow-hidden">
         <Image src={imageUrl} alt={name} fill className="object-cover" />
       </div>
       <div className="flex flex-col justify-between pt-2">

@@ -1,8 +1,10 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { useAppSelector } from "@/redux/hooks";
 import axios from "axios";
 import { useState } from "react";
+import { toast } from "./ui/use-toast";
 
 interface PurchaseProductProps {
   productId: string;
@@ -11,15 +13,19 @@ interface PurchaseProductProps {
 const PurchaseButton = ({ productId }: PurchaseProductProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
+  const { quantity } = useAppSelector((state) => state.cart);
+
   const onClick = async () => {
     try {
       setIsLoading(true);
 
-      const response = await axios.post(`/api/products/${productId}`);
+      const response = await axios.post(`/api/products/${productId}`, quantity);
 
       window.location.assign(response.data.url);
     } catch {
-      console.log("Something went wrong");
+      toast({
+        title: "Something went wrong",
+      });
     } finally {
       setIsLoading(false);
     }

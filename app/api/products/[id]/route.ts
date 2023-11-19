@@ -8,17 +8,21 @@ export async function POST(
   { params }: { params: { id: string } }
 ) {
   try {
+    const data = await req.json();
+
+    const quantity = parseInt(data);
+
     const product = await prisma.product.findUnique({
       where: { id: params.id },
     });
 
     if (!product) {
-      return new NextResponse("Course not found", { status: 404 });
+      return new NextResponse("Product not found", { status: 404 });
     }
 
     const line_items: Stripe.Checkout.SessionCreateParams.LineItem[] = [
       {
-        quantity: 1,
+        quantity: quantity,
         price_data: {
           currency: "usd",
           product_data: {
