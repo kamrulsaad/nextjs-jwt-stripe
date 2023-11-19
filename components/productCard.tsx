@@ -4,6 +4,7 @@ import Image from "next/image";
 import { formatPrice } from "@/lib/format";
 import { Product } from "@prisma/client";
 import PurchaseButton from "./PurchaseButton";
+import AddToCart from "./AddtoCartButton";
 
 interface CourseCardProps {
   product: Product;
@@ -24,7 +25,8 @@ export const ProductCard = async ({ product }: CourseCardProps) => {
         <div className="my-3 flex justify-between items-center gap-x-2 text-sm">
           <p className="font-medium">{formatPrice(price)}</p>
           <div className="flex items-center gap-x-1 ">
-            <PurchaseButton  productId={id} />
+            {/* <PurchaseButton  productId={id} /> */}
+            <AddToCart product={product} />
           </div>
         </div>
       </div>

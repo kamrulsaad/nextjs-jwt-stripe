@@ -8,7 +8,7 @@ interface PurchaseProductProps {
   productId: string;
 }
 
-const PurchaseButton = ({ productId}: PurchaseProductProps) => {
+const PurchaseButton = ({ productId }: PurchaseProductProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const onClick = async () => {
@@ -25,13 +25,8 @@ const PurchaseButton = ({ productId}: PurchaseProductProps) => {
     }
   };
   return (
-    <Button
-      onClick={onClick}
-      disabled={isLoading}
-      className="w-full md:w-auto"
-      size={"sm"}
-    >
-      Buy Now
+    <Button onClick={onClick} disabled={isLoading} className="w-full md:w-auto">
+      Proceed to checkout
     </Button>
   );
 };
