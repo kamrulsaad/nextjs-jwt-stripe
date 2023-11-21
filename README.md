@@ -33,28 +33,18 @@ A modern full-stack web application based on `Nextjs 13.5.5` and `TypeScript` wi
 
 ## How to run
 
-- Clone the project (both client and server side) from the github repo.
+- Clone the project from the GitHub repo.
 - Run `yarn install` to install all the dependencies.
-- Run `yarn prisma migrate dev --name init` to migrate the database. (You need to have postgres installed in your system)
+- Run `yarn prisma migrate dev --name init` to migrate the database. (You need to have Postgres installed in your system)
 - Run `yarn run dev` to run the project.
 
 ## My Process
 
-I used `RTK Query` for data fetching for the authentication part. Instead of `jsonwebtoken`, I tried to use something different and `jose` is the package I used for JWT authentication. It uses the same system as of a JWT authentication system, but provides more extra features that we can benefit from in many different ways. 
+I used `RTK Query` for data fetching for the authentication part. Instead of `jsonwebtoken`, I tried to use something different, and `jose` is the package I used for JWT authentication. It uses the same system as a JWT authentication system but provides more extra features that we can benefit from in many different ways. 
 
-Webhooks has been used to implement `stripe` test payment processing. It just needs a simple configuration and provides a lot of features.
+Webhooks have been used to implement `stripe` test payment processing. It just needs a simple configuration and provides a lot of features.
 
-For more details, please check the following vide., It will take only 5 minutes to understand the overall system if you watch the video: [Click Here](https://www.loom.com/share/4670a574363d46998bfe3e5ef938b3a0?sid=14fd1732-4b50-4dea-98bd-cb31533c580c)
-
-## Future Improvements
-
-I have tried to implement the project as per the requirements. However, there are many opportunities to improve this project. Some of them are listed below:
-
-- Automated testing can be implemented.
-- More features can be added to the dashboard.
-- More features can be added to the transaction history page.
-- Features like user profile page can be added.
-- Features like user authentication can be added, and many more.
+For more details, please check the following video, It will take only 5 minutes to understand the overall system if you watch the video: [Click Here](https://www.loom.com/share/4670a574363d46998bfe3e5ef938b3a0?sid=14fd1732-4b50-4dea-98bd-cb31533c580c)
 
 ## Built With
 
@@ -80,10 +70,10 @@ I have tried to implement the project as per the requirements. However, there ar
 
 Users should be able to:
 
-- See a Beautiful, animated and responsive landing page
-- See dynaminc data for their financial health status
-- By clicking on the income or expense tab on the left sidebar, they can add or remove transaction history
-- On the dashboard users can visualize their financial health status by seeing the chart
-- Current Balance, Min/Max expense and income will be shown in the dashboard
+- See a Beautiful, animated, and responsive landing page
+- Login and Register using your name, email, and password
+- Choose their desired product from the listing provided.
+- Increase or decrease the quantity of the product selected in the cart.
+- Make payment using the Stripe payment gateway.
 
 ---
